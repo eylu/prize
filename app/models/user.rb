@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :phone
   validates_uniqueness_of :phone
-  PEOPLES = 10
+  PEOPLES = 100
 
   after_create :update_award
 

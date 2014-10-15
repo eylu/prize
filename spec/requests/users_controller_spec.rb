@@ -8,16 +8,19 @@ describe UsersController, :type => :request do
   }
   it 'can get a prize or nil' do
     Award.count.should == 3
+    p '------------------ 现在的奖品为：'
+    p Award.all
     post '/prize', {:user=>{:name=>'王长禄',:phone=>'15831287550'},:format => 'json'}
-    p last_response.body
+    p '------------------ 现在进行抽奖：'
     User.count.should == 1
     user = User.first
     user.name.should == '王长禄'
     user.phone.should == '15831287550'
+    p "------------------ 抽奖用户：#{user.name},#{user.phone}"
     if user.award_id.present?
       p "------------------ 您获得的奖品是：#{user.award_name} -----------------"
       award = Award.find(user.award_id)
-      p award
+      p "------------------ 该奖品现在的数量：#{award.quantity}"
       if award.quantity == 0
         award.flg.should == 0
       else
