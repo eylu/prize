@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'main#index'
+  root 'phone#prize'
+  post 'prize' => 'users#award'
   match 'login' => 'main#login', via: [:get, :post]
   get 'logout' => 'main#logout'
-  get 'prize' => 'phone#prize'
-  post 'prize' => 'users#award'
   get 'users' => 'users#index'
   resources :awards
   resources :admins

@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20141011020312) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["award_id"], name: "index_users_on_award_id", using: :btree
-  add_index "users", ["phone"], name: "index_users_on_phone", using: :btree
+  add_index "users", ["award_id"], name: "index_users_on_award_id"
+  add_index "users", ["phone"], name: "index_users_on_phone"
 
 end
