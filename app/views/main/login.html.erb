@@ -1,0 +1,15 @@
+<div>
+<%= form_tag(login_path) do %>
+<div>
+  用户名<br>
+  <input type="text" name="user[name]" />
+</div>
+<div>
+  密码<br>
+  <input type="password" name="user[password]" />
+</div>
+<div>
+  <input type="submit" value="登陆" />
+</div>
+<% end %>
+</div>

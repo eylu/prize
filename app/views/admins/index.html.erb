@@ -1,0 +1,26 @@
+<h1>管理员列表</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>账号</th>
+      <th>状态</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admins.each do |admin| %>
+      <tr>
+        <td><%= admin.name  %></td>
+        <td><%= admin.flg %></td>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建管理员', new_admin_path %>

@@ -1,0 +1,80 @@
+
+<% content_for :head do %>
+<%= javascript_include_tag 'jquery.validate','jquery.validate_cn','jquery.ajaxform' %>
+<style type="text/css">
+  label.error{
+    font-size: 12px;
+    font-weight: normal;
+    color: red;
+  }
+  input.error[type=text]{
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  }
+</style>
+<% end %>
+<%= form_tag(prize_path,id:'prizeForm') do %>
+  <div class="form-group">
+    <label for="userName">用户名</label>
+    <input type="text" class="form-control" name="user[name]" placeholder="这里填写用户名">
+  </div>
+  <div class="form-group">
+    <label for="userPhone">手机号</label>
+    <input type="text" class="form-control" name="user[phone]" placeholder="这里填写手机号码">
+  </div>
+  <button type="submit" class="btn btn-default">抽奖</button>
+<% end %>
+
+<script type="text/javascript">
+  (function($) {
+    $(document).ready(function() {
+      var form = $('#prizeForm');
+      var options = {
+        clearForm: true,
+        resetForm: true,
+        success: function(json) {
+
+          console.log(json);
+
+          if(json){
+            alert('恭喜您,中奖了！');
+          }else{
+            alert('对不起，没中奖 ...');
+          }
+          window.location.href = '/prize';
+        },
+        error: function(xhr, status, err) {
+          //console.log('xhr:',xhr);
+          //console.log('status:',status);
+          //console.log('err:',err);
+          var errMsg = xhr.responseText || '失败！';
+          alert(errMsg);
+        }
+      };
+      form.validate({
+        onkeydown: false,
+        onkeyup: false,
+        onfocusin: false,
+        rules: {
+          "user[name]": {
+            required: true
+          },
+          "user[phone]": {
+            required: true
+          }
+        }
+      });
+
+      form.submit(function() {
+        if (form.valid()) {
+          form.ajaxSubmit(options);
+        }
+        return false;
+      });
+
+
+
+    });
+
+  })(jQuery)
+  </script>

@@ -1,0 +1,31 @@
+
+default: &default
+  adapter: mysql2
+  pool: 5
+  encoding: utf8
+  reconnect: true
+  timeout: 5000
+
+development:
+  <<: *default
+  database: prize
+  username: root
+  password: root
+  host: 192.168.2.228
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: prize_test
+  username: root
+  password: root
+  host: 192.168.2.228
+
+production:
+  <<: *default
+  database: prize
+  username: root
+  password: root
+  host: 192.168.2.228

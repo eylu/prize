@@ -1,0 +1,33 @@
+<h1>奖品列表</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>奖品名称</th>
+      <th>状态</th>
+      <th>数量</th>
+      <th>备注</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @awards.each do |award| %>
+      <tr>
+        <td><%= award.name  %></td>
+        <td><%= award.flg %></td>
+        <td><%= award.quantity %></td>
+        <td><%= award.note %></td>
+        <td>
+          <%= link_to '查看', award %>
+          <%= link_to '编辑', edit_award_path(award) %>
+          <%= link_to '删除', award, method: :delete, data: { confirm: '确定删除?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建奖品', new_award_path %>

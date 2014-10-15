@@ -1,0 +1,25 @@
+zh-CN:
+  activerecord:
+    models:
+      user: "用户"  #g
+      award: "奖品"  #g
+      admin: '管理员' #g
+    attributes:
+      user:
+        name: "姓名"  #g
+        phone: "电话"  #g
+        award_id: "奖品ID"  #g
+        award_name: "奖品名称" #g
+      award:
+        name: '奖品名称' #g
+        code: '编码' #g
+        flg: '状态' #g
+        quantity: '数量' #g
+        note: '备注' #g
+      admin:
+        name: '账号' #g
+        flg: '状态' #g
+        password: '密码' #g
+        password_confirm: '确认密码' #g
+
+

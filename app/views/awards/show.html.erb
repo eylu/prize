@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>奖品名称:</strong>
+  <%= @award.name %>
+</p>
+
+<p>
+  <strong>状态:</strong>
+  <%= @award.flg %>
+</p>
+
+<p>
+  <strong>数量:</strong>
+  <%= @award.quantity %>
+</p>
+
+<p>
+  <strong>备注:</strong>
+  <%= @award.note %>
+</p>
+
+
+
+<%= link_to '编辑', edit_award_path(@award) %> |
+<%= link_to '返回列表', awards_path %>
